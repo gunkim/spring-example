@@ -11,7 +11,11 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class HomeController {
     @PostMapping("")
-    public void rbTest(@RequestBody PersonRequestDto dto){
+    public void rb(@RequestBody PersonRequestDto dto){
+        log.info("TEST :: "+dto.toString());
+    }
+    @GetMapping("")
+    public void ma(@ModelAttribute PersonRequestDto dto){
         log.info("TEST :: "+dto.toString());
     }
 }

@@ -35,12 +35,19 @@ public class HomeControllerTests {
                 .build();
     }
     @Test
-    public void postRequestBodyTest() throws Exception {
+    public void requestBodyTest() throws Exception {
         String json = "{ \"name\":\"kan\", \"age\":\"13\" }";
         mockMvc.perform(MockMvcRequestBuilders.post("/api/rq")
                 .contentType(MediaType.APPLICATION_JSON)
-                .characterEncoding("utf-8")
                 .content(json)
+        ).andExpect(status().isOk()).andDo(print());
+    }
+    @Test
+    public void modelAttributeTest() throws Exception {
+        String json = "{ \"name\":\"kan\", \"age\":\"13\" }";
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/rq")
+                .param("name", "kan")
+                .param("age", "13")
         ).andExpect(status().isOk()).andDo(print());
     }
 }
