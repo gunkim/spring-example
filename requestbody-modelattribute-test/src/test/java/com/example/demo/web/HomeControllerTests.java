@@ -35,19 +35,40 @@ public class HomeControllerTests {
                 .build();
     }
     @Test
-    public void requestBodyTest() throws Exception {
-        String json = "{ \"name\":\"kan\", \"age\":\"13\" }";
-        mockMvc.perform(MockMvcRequestBuilders.post("/api/rq")
+    public void requestBodyParameterTest() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.post("/api/rb")
                 .contentType(MediaType.APPLICATION_JSON)
+                .characterEncoding("UTF-8")
+                .param("name", "kan")
+                .param("age", "13")
+        ).andExpect(status().isOk()).andDo(print());
+    }
+    @Test
+    public void requestBodyBodyTest() throws Exception {
+        String json = "{ \"name\":\"kan\", \"age\":\"13\" }";
+        mockMvc.perform(MockMvcRequestBuilders.post("/api/rb")
+                .contentType(MediaType.APPLICATION_JSON)
+                .characterEncoding("UTF-8")
                 .content(json)
         ).andExpect(status().isOk()).andDo(print());
     }
     @Test
-    public void modelAttributeTest() throws Exception {
+    public void modelAttributeParameterTest() throws Exception {
         String json = "{ \"name\":\"kan\", \"age\":\"13\" }";
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/rq")
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/ma")
+                .contentType(MediaType.APPLICATION_JSON)
+                .characterEncoding("UTF-8")
                 .param("name", "kan")
                 .param("age", "13")
+        ).andExpect(status().isOk()).andDo(print());
+    }
+    @Test
+    public void modelAttributeBodyTest() throws Exception {
+        String json = "{ \"name\":\"kan\", \"age\":\"13\" }";
+        mockMvc.perform(MockMvcRequestBuilders.post("/api/ma")
+                .contentType(MediaType.APPLICATION_JSON)
+                .characterEncoding("UTF-8")
+                .content(json)
         ).andExpect(status().isOk()).andDo(print());
     }
 }

@@ -7,15 +7,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @Slf4j
-@RequestMapping("/api/rq")
 @RestController
 public class HomeController {
-    @PostMapping("")
+    @PostMapping("/api/rb")
     public void rb(@RequestBody PersonRequestDto dto){
-        log.info("TEST :: "+dto.toString());
+        System.out.println("TEST :: "+dto.toString());
     }
-    @GetMapping("")
+    @PostMapping("/api/ma")
     public void ma(@ModelAttribute PersonRequestDto dto){
-        log.info("TEST :: "+dto.toString());
+        System.out.println("TEST :: "+dto.toString());
     }
 }
