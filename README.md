@@ -13,3 +13,5 @@
 [Spring Security에 OAuth2를 연동](https://github.com/gunkims/spring-example/tree/master/spring-security-oauth2)
 
 [Spring과 React를 동시에 빌드](https://github.com/gunkims/spring-example/tree/master/spring-react-build)
+
+[Spring 유효성 검증](https://github.com/gunkims/spring-example/tree/master/validate-form)

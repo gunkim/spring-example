@@ -1,0 +1,39 @@
+buildscript {
+    ext {
+        springBootVersion = '2.2.4.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.gun'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf'
+    implementation group:'org.springframework.boot', name: 'spring-boot-starter-validation'
+    implementation group:'org.springframework.boot', name: 'spring-boot-starter-web'
+    compileOnly group:'org.projectlombok', name: 'lombok'
+    annotationProcessor group:'org.projectlombok', name: 'lombok'
+    testImplementation group:'org.springframework.boot', name: 'spring-boot-starter-test'
+}
+
+test {
+    useJUnitPlatform()
+}
