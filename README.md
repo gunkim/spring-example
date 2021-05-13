@@ -7,3 +7,5 @@
 [Spring Security에 JWT를 구현한 비동기 로그인](https://github.com/gunkims/spring-example/tree/master/springboot-security-jwt)
 
 [Mysql + Mybatis + Logback 세팅](https://github.com/gunkims/spring-example/tree/master/mysql-mybatis-logback)
+
+[Spring Security 간단히 사용해본 예제](https://github.com/gunkims/spring-example/tree/master/spring-security-easy)
