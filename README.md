@@ -9,3 +9,5 @@
 [Mysql + Mybatis + Logback 세팅](https://github.com/gunkims/spring-example/tree/master/mysql-mybatis-logback)
 
 [Spring Security 간단히 사용해본 예제](https://github.com/gunkims/spring-example/tree/master/spring-security-easy)
+
+[Spring Security에 OAuth2를 연동](https://github.com/gunkims/spring-example/tree/master/spring-security-oauth2)
