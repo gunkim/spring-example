@@ -1,0 +1,43 @@
+buildscript {
+    ext {
+        springBootVersion = '2.4.5'
+        springManagerVersion = '1.0.10.RELEASE'
+    }
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+plugins {
+    id 'java'
+    id 'eclipse'
+    id 'idea'
+    id 'org.springframework.boot' version "${springBootVersion}"
+    id 'io.spring.dependency-management' version "${springManagerVersion}"
+}
+
+group = 'dev.gunlog'
+version = '0.0.1'
+sourceCompatibility = '1.8'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web'
+    implementation group: 'org.projectlombok', name: 'lombok'
+    implementation 'junit:junit:4.13.1'
+    annotationProcessor group: 'org.projectlombok', name: 'lombok'
+    testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test'
+    implementation group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: '2.1.4'
+    implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.22'
+    implementation group: 'org.bgee.log4jdbc-log4j2', name: 'log4jdbc-log4j2-jdbc4.1', version: '1.16'
+}
+
+test {
+    useJUnitPlatform()
+}
