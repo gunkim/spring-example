@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.w3.org/1999/xhtml">
+<div th:replace="/includes/header :: headerHead"></div>
+<div th:replace="/includes/header :: headerBody"></div>
+<body>
+<div class="container">
+    <div class="page-header">
+        <h1>권한에 따라 볼 수 있는 게 달라요. <small>권한이 있으면 좋아요</small></h1>
+    </div>
+    <ul class="list-group col-md-3">
+        <li class="list-group-item"><a href="/security/public">모두 볼 수 있어요</a></li>
+        <li class="list-group-item"><a href="/security/guest1">GUEST가 볼 수 있는 것1</a></li>
+        <li class="list-group-item"><a href="/security/guest2">GUEST가 볼 수 있는 것2</a></li>
+        <li class="list-group-item"><a href="/security/user1">USER가 볼 수 있는 것1</a></li>
+        <li class="list-group-item"><a href="/security/admin1">ADMIN이 볼 수 있는 것1</a></li>
+        <li class="list-group-item"><a href="/security/admin2">ADMIN이 볼 수 있는 것2</a></li>
+</div>
+</body>
+<div th:replace="/includes/footer :: footer"></div>
+</html>

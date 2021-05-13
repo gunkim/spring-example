@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head th:fragment="headerHead">
+    <meta charset="UTF-8">
+    <title>시큐리티로 만드는 로그인</title>
+    <link rel= "stylesheet" type="text/css" href="/css/bootstrap-theme.min.css">
+    <link rel= "stylesheet" type="text/css" href="/css/bootstrap.min.css">
+</head>
+<body th:fragment="headerBody">
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">스프링 시큐리티</a>
+        </div>
+        <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li sec:authorize="!isAuthenticated()"><a href="/login">로그인</a></li>
+                <li sec:authorize="isAuthenticated()"><p class="navbar-text"><span sec:authentication="principal.username"></span>님이 로그인하셨습니다.</p></li>
+                <li sec:authorize="isAuthenticated()"><a href="/logout" id="logoutBtn">로그아웃</a></li>
+                <form id="logout" th:action="@{/logout}" method="post"></form>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+</form>
+</body>
+</html>

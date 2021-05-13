@@ -1,0 +1,6 @@
+# 안 올라가도 되는 파일들...
+# 내 git에서 사라져
+.idea
+.gradle
+build
+out
