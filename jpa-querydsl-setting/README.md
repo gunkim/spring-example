@@ -1,4 +1,5 @@
 # Jpa-Querydsl 세팅 예제
+
 해당 설정 방법은 Gradle 5.0 이상, IntelliJ 2020.x 이상을 기준으로 한다.
 
 # 환경
@@ -93,6 +94,23 @@ Gradle 탭>Tasks>other>compileJava 를 더블클릭해주게 되면 QClass가 bu
 <img width="536" alt="이미지2" src="https://user-images.githubusercontent.com/45007556/117846103-17556400-b2bc-11eb-956f-238aab69a167.png">
 <br/>
 <img width="316" alt="이미지3" src="https://user-images.githubusercontent.com/45007556/117846111-19b7be00-b2bc-11eb-8224-77ce3ab9768f.png">
+
+# Querydsl 설정
+
+Querydsl 사용을 위한 설정 코드를 작성해준다.
+
+```java
+@Configuration
+public class QuerydslConfig {
+    @PersistenceContext
+    private EntityManager entityManager;
+
+    @Bean
+    public JPAQueryFactory jpaQueryFactory() {
+        return new JPAQueryFactory(entityManager);
+    }
+}
+```
 
 # 참고
 
