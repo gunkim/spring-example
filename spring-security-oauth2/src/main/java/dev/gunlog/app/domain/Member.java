@@ -1,4 +1,4 @@
-package com.gun.app.domain;
+package dev.gunlog.app.domain;
 
 import lombok.Builder;
 import lombok.Getter;

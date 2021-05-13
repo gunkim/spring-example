@@ -1,9 +1,9 @@
-package com.gun.app.security.service;
+package dev.gunlog.app.security.service;
 
-import com.gun.app.domain.Member;
-import com.gun.app.domain.MemberRepository;
-import com.gun.app.security.dto.OAuthAttributes;
-import com.gun.app.security.dto.SessionUser;
+import dev.gunlog.app.domain.Member;
+import dev.gunlog.app.domain.MemberRepository;
+import dev.gunlog.app.security.dto.OAuthAttributes;
+import dev.gunlog.app.security.dto.SessionUser;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

@@ -1,4 +1,4 @@
-package com.gun.app;
+package dev.gunlog.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

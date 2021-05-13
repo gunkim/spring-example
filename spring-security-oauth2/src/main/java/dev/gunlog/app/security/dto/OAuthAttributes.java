@@ -1,14 +1,13 @@
-package com.gun.app.security.dto;
+package dev.gunlog.app.security.dto;
 
-import com.gun.app.domain.Member;
-import com.gun.app.domain.Role;
-import com.gun.app.domain.Social;
+import dev.gunlog.app.domain.Member;
+import dev.gunlog.app.domain.Role;
+import dev.gunlog.app.domain.Social;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**
