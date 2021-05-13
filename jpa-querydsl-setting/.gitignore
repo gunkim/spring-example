@@ -1,0 +1,5 @@
+.gradle
+.idea
+out
+src/main/generated
+build
