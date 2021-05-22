@@ -26,12 +26,11 @@ import java.io.IOException;
  */
 @Slf4j
 public class JwtTokenAuthenticationProcessingFilter extends AbstractAuthenticationProcessingFilter {
-    private final AuthenticationFailureHandler failureHandler;
     private final JwtUtil jwtUtil;
 
     public JwtTokenAuthenticationProcessingFilter(RequestMatcher matcher, AuthenticationFailureHandler failureHandler, JwtUtil jwtUtil) {
         super(matcher);
-        this.failureHandler = failureHandler;
+        this.setAuthenticationFailureHandler(failureHandler);
         this.jwtUtil = jwtUtil;
     }
 
@@ -68,20 +67,5 @@ public class JwtTokenAuthenticationProcessingFilter extends AbstractAuthenticati
         context.setAuthentication(authResult);
         SecurityContextHolder.setContext(context);
         chain.doFilter(request, response);
-    }
-
-    /**
-     * 인증(Authentication) 실패 시 실행
-     * @param request
-     * @param response
-     * @param failed
-     * @throws IOException
-     * @throws ServletException
-     */
-    @Override
-    protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) throws IOException, ServletException {
-        SecurityContextHolder.clearContext();
-        //FailureHandler에 처리 로직 위임
-        failureHandler.onAuthenticationFailure(request, response, failed);
     }
 }
