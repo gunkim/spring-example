@@ -25,8 +25,6 @@ import java.util.stream.Collectors;
 @Component
 @SuppressWarnings("unchecked")
 public class JwtAuthenticationProvider implements AuthenticationProvider {
-    private final AuthenticationFailureHandler failureHandler;
-
     /**
      * JWT 유효성 검증
      * @param authentication
