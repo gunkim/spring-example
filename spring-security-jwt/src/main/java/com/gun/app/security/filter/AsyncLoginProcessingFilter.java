@@ -25,13 +25,11 @@ import java.io.IOException;
 public class AsyncLoginProcessingFilter extends AbstractAuthenticationProcessingFilter {
     private final ObjectMapper objectMapper;
 
-    private final AuthenticationSuccessHandler authenticationSuccessHandler;
-    private final AuthenticationFailureHandler authenticationFailureHandler;
     public AsyncLoginProcessingFilter(String defaultFilterProcessesUrl, ObjectMapper objectMapper, AuthenticationSuccessHandler authenticationSuccessHandler, AuthenticationFailureHandler authenticationFailureHandler) {
         super(defaultFilterProcessesUrl);
         this.objectMapper = objectMapper;
-        this.authenticationSuccessHandler = authenticationSuccessHandler;
-        this.authenticationFailureHandler = authenticationFailureHandler;
+        this.setAuthenticationSuccessHandler(authenticationSuccessHandler);
+        this.setAuthenticationFailureHandler(authenticationFailureHandler);
     }
 
     /**
@@ -52,35 +50,6 @@ public class AsyncLoginProcessingFilter extends AbstractAuthenticationProcessing
         LoginRequest loginRequest = objectMapper.readValue(request.getReader(), LoginRequest.class);
         UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword());
         return this.getAuthenticationManager().authenticate(token);
-    }
-
-    /**
-     * 인증(Authentication) 성공 시 실행
-     * @param request
-     * @param response
-     * @param chain
-     * @param authResult
-     * @throws IOException
-     * @throws ServletException
-     */
-    @Override
-    protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult) throws IOException, ServletException {
-        //성공 시 처리 로직을 SuccessHandler에 위임함.
-        authenticationSuccessHandler.onAuthenticationSuccess(request, response, authResult);
-    }
-
-    /**
-     * 인증(Authentication) 실패 시 실행
-     * @param request
-     * @param response
-     * @param failed
-     * @throws IOException
-     * @throws ServletException
-     */
-    @Override
-    protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) throws IOException, ServletException {
-        //실패 시 처리 로직을 FailureHandler에 위임함.
-        authenticationFailureHandler.onAuthenticationFailure(request, response, failed);
     }
 
     /**
