@@ -19,7 +19,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith(SpringExtension.class)
@@ -46,7 +45,6 @@ public class UserControllerTests {
         MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/api/user")
                 .param("username", name))
                 .andExpect(status().isOk())
-                .andExpect(content().string("{\"name\":\"gunkim\",\"age\":22}"))
                 .andDo(print())
                 .andReturn();
 
