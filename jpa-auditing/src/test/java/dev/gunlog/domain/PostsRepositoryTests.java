@@ -19,7 +19,7 @@ public class PostsRepositoryTests {
     @Autowired
     private MemberRepository memberRepository;
 
-    private final String USERNAME = "gunkim";
+    private static final String USERNAME = "gunkim";
 
     @BeforeEach
     public void createUser() {
