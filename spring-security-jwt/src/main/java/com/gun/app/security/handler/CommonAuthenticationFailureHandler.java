@@ -42,11 +42,11 @@ public class CommonAuthenticationFailureHandler implements AuthenticationFailure
 
         String msg = "인증 실패";
         if (exception instanceof BadCredentialsException) {
-            msg = "비밀번호 불일치";
+            msg = exception.getMessage();
         } else if (exception instanceof AuthMethodNotSupportedException) {
-            msg = "해당 요청으로 인한 로그인 미지원";
+            msg = exception.getMessage();
         } else if(exception instanceof JwtExpiredTokenException){
-            msg = "JWT 토큰 유효기간 만료";
+            msg = exception.getMessage();
         }
         objectMapper.writeValue(response.getWriter(), msg);
     }
