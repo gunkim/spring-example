@@ -1,0 +1,49 @@
+buildscript {
+    ext {
+        springBootVer = '2.5.0'
+        springDepenManaVer = '1.0.10.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVer}")
+    }
+}
+plugins {
+    id 'org.springframework.boot' version "${springBootVer}"
+    id 'io.spring.dependency-management' version "${springDepenManaVer}"
+    id 'eclipse'
+    id 'idea'
+    id 'java'
+}
+
+group = 'dev.gunlog'
+version = '1.0'
+sourceCompatibility = JavaVersion.VERSION_11
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    compileOnly 'org.projectlombok:lombok'
+    runtimeOnly 'com.h2database:h2'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    testImplementation 'org.springframework.security:spring-security-test'
+}
+test {
+    useJUnitPlatform()
+}
