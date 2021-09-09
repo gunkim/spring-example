@@ -61,9 +61,9 @@ public class JwtUtil {
         try {
             claimsJws = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token);
         } catch (UnsupportedJwtException | MalformedJwtException | IllegalArgumentException | SignatureException ex) {
-            throw new BadCredentialsException("Invalid JWT token: ", ex);
+            throw new BadCredentialsException("잘못된 JWT 토큰이거나 토큰 정보가 없습니다.");
         } catch (ExpiredJwtException expiredEx) {
-            throw new JwtExpiredTokenException(claimsJws.toString(), "JWT Token expired", expiredEx);
+            throw new JwtExpiredTokenException(claimsJws.toString(), "토큰 유효기간이 만료되었습니다.", expiredEx);
         }
         return claimsJws;
     }

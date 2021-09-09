@@ -47,6 +47,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
      */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        //RequestMatcher에서 거르는 URL
         List<String> permitAllEndpointList = Arrays.asList(
                 AUTHENTICATION_URL
         );
@@ -76,7 +77,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     /**
-     * 비동기 로그인 처리를 위한 필터 생성하고, authenticationManager를 등록해줌. 후에 반환.
+     * 비동기 로그인 처리를 위한 필터 생성하고, authenticationManager를 등록해줌.
      * @return
      * @throws Exception
      */
@@ -87,7 +88,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     /**
-     * 토큰 검즈을 위한 필터 생성하고, authenticationManager를 등록해줌. 후에 반환.
+     * 토큰 검증을 위한 필터 생성하고, authenticationManager를 등록해줌.
      * @param pathsToSkip
      * @param pattern
      * @return

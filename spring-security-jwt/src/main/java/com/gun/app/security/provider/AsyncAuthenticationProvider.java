@@ -11,6 +11,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
@@ -42,10 +43,16 @@ public class AsyncAuthenticationProvider implements AuthenticationProvider {
         String username = (String) authentication.getPrincipal();
         String password = (String) authentication.getCredentials();
 
-        UserDetails user = customUserDetailsService.loadUserByUsername(username);
+        UserDetails user;
+
+        try {
+            user = customUserDetailsService.loadUserByUsername(username);
+        } catch(UsernameNotFoundException e) {
+            throw new BadCredentialsException("해당 유저를 찾을 수 없습니다.");
+        }
 
         if(!passwordEncoder.matches(password, user.getPassword())){
-            throw new BadCredentialsException("인증 실패. username or password 불일치");
+            throw new BadCredentialsException("비밀번호가 일치하지 않습니다.");
         }
         List<GrantedAuthority> authorities = user.getAuthorities().stream()
                 .map(authority -> new SimpleGrantedAuthority(authority.getAuthority()))

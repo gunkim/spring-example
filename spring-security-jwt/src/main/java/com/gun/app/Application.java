@@ -20,7 +20,7 @@ public class Application{
     @Bean
     public CommandLineRunner runner(MemberRepository memberRepository, PasswordEncoder passwordEncoder) throws SQLException {
         return (args) -> {
-            Member userMember = memberRepository.save(
+            memberRepository.save(
                     Member.builder()
                             .username("gunkim")
                             .password(passwordEncoder.encode("test"))
