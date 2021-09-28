@@ -1,4 +1,4 @@
-= 범부처 백엔드 REST API 문서
+= Asciidoc 샘플 REST API 문서
 gunlog.dev
 :doctype: book
 :icons: font
@@ -33,7 +33,6 @@ API의 공통 사항입니다. 아래 내용은 준수해주시기 바랍니다.
 
 |===
 | name | 설명
-
 | `Authorization`
 | API를 사용하기 위한 인증 키
 |===
