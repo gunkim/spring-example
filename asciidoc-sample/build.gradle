@@ -1,6 +1,18 @@
+buildscript {
+    ext {
+        springBootVersion = '2.5.5'
+    }
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
 plugins {
     id 'java'
-    id 'org.springframework.boot' version "2.5.5"
+    id 'org.springframework.boot' version "${springBootVersion}"
     id "io.spring.dependency-management" version "1.0.11.RELEASE"
     id "org.asciidoctor.convert" version "1.5.9.2"
 }
