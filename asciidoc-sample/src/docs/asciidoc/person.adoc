@@ -1,0 +1,7 @@
+= 사람 API
+
+== 인사하기
+사람이 인사를 해줍니다.
+
+operation::person/sayHello[snippets='http-request,http-response']
+

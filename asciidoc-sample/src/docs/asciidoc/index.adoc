@@ -1,0 +1,57 @@
+= 범부처 백엔드 REST API 문서
+gunlog.dev
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 3
+:sectlinks:
+
+[[introduction]]
+== 소개
+
+Asciidoc 연습을 위한 API 문서입니다.
+
+[[common]]
+== 공통 사항
+
+API의 공통 사항입니다. 아래 내용은 준수해주시기 바랍니다.
+
+=== Domain
+
+|===
+| 환경 | domain
+
+| 내부 아이피
+| `123.123.123.123:8080`
+| 외부 아이피
+| `231.231.421.432:8082`
+|===
+
+
+=== Header
+
+|===
+| name | 설명
+
+| `Authorization`
+| API를 사용하기 위한 인증 키
+|===
+
+=== 공통 Response Body
+
+|===
+| field | 설명
+| `timestamp`
+| 응답 시간
+| `message`
+| 응답 메시지
+| `success`
+| 성공 여부
+| `statusCode`
+| 응답 코드
+| `body`
+| 실제 반환될 데이터
+|===
+
+include::person.adoc[]
