@@ -14,6 +14,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import static dev.gunlog.ApiDocumentUtils.getDocumentRequest;
+import static dev.gunlog.ApiDocumentUtils.getDocumentResponse;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.documentationConfiguration;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -38,6 +39,8 @@ public class PersonControllerTests {
         this.mockMvc.perform(get("/sayHello"))
                 .andExpect(status().isOk())
                 .andDo(print())
-                .andDo(document("person/sayHello", getDocumentRequest()));
+                .andDo(document("person/sayHello",
+                        getDocumentRequest(),
+                        getDocumentResponse()));
     }
 }
