@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long idx;
     private String name;
     private String password;
     private String email;
@@ -30,8 +30,8 @@ public class User {
     private LocalDateTime updatedDate;
 
     @Builder
-    public User(Long id, String name, String password, String email, String principal, SocialType socialType, UserStatus status, Grade grade, LocalDateTime createdDate, LocalDateTime updatedDate) {
-        this.id = id;
+    public User(Long idx, String name, String password, String email, String principal, SocialType socialType, UserStatus status, Grade grade, LocalDateTime createdDate, LocalDateTime updatedDate) {
+        this.idx = idx;
         this.name = name;
         this.password = password;
         this.email = email;

@@ -28,6 +28,7 @@ dependencies {
     runtimeOnly group: 'com.h2database', name: 'h2', version: '1.4.200'
     compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.22'
     annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.22'
+    testCompileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.22'
     testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test'
     testImplementation group: 'org.springframework.batch', name: 'spring-batch-test'
 }
