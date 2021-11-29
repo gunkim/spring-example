@@ -33,7 +33,7 @@ public class InactiveUserJobConfig {
     @Bean
     public Step inactiveJobStep(StepBuilderFactory stepBuilderFactory){
         return stepBuilderFactory.get("inactiveUserStep")
-                .<User, User> chunk(10) // chunk 단위로 붂어서 writer() 메서드 실행
+                .<User, User> chunk(10) // chunk 단위로 묷어서 writer() 메서드 실행
                 .reader(inactiveUserReader())
                 .processor(inactiveUserProcessor())
                 .writer(inactiveUserWriter())
