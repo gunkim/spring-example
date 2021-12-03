@@ -1,0 +1,36 @@
+buildscript {
+    ext {
+        springBootVersion = '2.6.1'
+    }
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'dev.gunlog'
+version = '0.0.1'
+sourceCompatibility = JavaVersion.VERSION_11
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation group: 'com.google.api-client', name: 'google-api-client', version: '1.23.0'
+    implementation group: 'com.google.oauth-client', name: 'google-oauth-client-jetty', version: '1.23.0'
+    implementation group: 'com.google.apis', name: 'google-api-services-calendar', version: 'v3-rev305-1.23.0'
+}
+
+test {
+    useJUnitPlatform()
+}
