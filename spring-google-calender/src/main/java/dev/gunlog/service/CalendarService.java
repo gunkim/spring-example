@@ -49,7 +49,7 @@ public class CalendarService {
         this.credentialsFilePath = credentialsFilePath;
     }
 
-    public List<Event> test() throws GeneralSecurityException, IOException, IllegalArgumentException {
+    public List<Event> getNowSchedules() throws GeneralSecurityException, IOException, IllegalArgumentException {
         Events events;
         try {
             DateTime now = new DateTime(System.currentTimeMillis());
@@ -63,20 +63,7 @@ public class CalendarService {
             logger.info("Google Response Error", e);
             return List.of();
         }
-        List<Event> items = events.getItems();
-        if (items.isEmpty()) {
-            System.out.println("No upcoming events found.");
-        } else {
-            System.out.println("Upcoming events");
-            for (Event event : items) {
-                DateTime start = event.getStart().getDateTime();
-                if (start == null) {
-                    start = event.getStart().getDate();
-                }
-                System.out.printf("%s (%s)\n", event.getSummary(), start);
-            }
-        }
-        return items;
+        return events.getItems();
     }
     public Calendar getCalendar() throws GeneralSecurityException, IOException {
         final NetHttpTransport httpTransport = GoogleNetHttpTransport.newTrustedTransport();
