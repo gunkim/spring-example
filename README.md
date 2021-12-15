@@ -17,9 +17,3 @@
 [Spring과 React를 동시에 빌드](https://github.com/gunkims/spring-example/tree/master/spring-react-build)
 
 [Spring 유효성 검증](https://github.com/gunkims/spring-example/tree/master/validate-form)
-
-## 블로그
-
-[JUnit5로 스프링 프로젝트 효과적으로 테스트하기](https://gunlog.dev/spring-project-test)-[source](https://github.com/gunkims/spring-example/tree/master/project-test)
-
-[Kotlin 프로젝트에서 Querydsl 세팅]()-[source](https://github.com/gunkims/spring-example/tree/master/kotlin-jpa-querydsl-setting)
